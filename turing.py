@@ -1,3 +1,15 @@
+#v.0.0.4
+            #Turing macchine by mishanya
+print('Now, please, write your rules for our alphabet from 3 letters: a, b and c. In format: b R q0. IN THREE LINES:')
+a = input()
+b = input()
+c = input()
+rules = {'a': a.split(), 'b': b.split(), 'c': c.split(), '-': ('!')}
+print('Okay, now compare this table with your rules, if something not right, re-run program.')
+print(f'a: {rules['a']}; b: {rules['b']}; c: {rules['c']}')
+print('Now, if all before correct type the word:')
+word = input()
+
 def process(w):
     w = [i for i in w]
 
