@@ -1,17 +1,12 @@
-
-            #Turing macchine by mishanya
-rules = {'a': ('b', 'R', 'q0'), 'b': ('c', 'R', 'q0'), 'c': ('a', 'L', 'q1'), '-': ('!')}
-
-word = input()
-
 def process(w):
     w = [i for i in w]
-    if not '-' in w:
-       return 'not right request'
+
     condition = 'q0'
     i = 0
     while True:
         if i < 0:
+            return w[:-1]
+        if i > len(word) - 1:
             return w[:-1]
         if w[i] == 'a':
             w[i] = rules['a'][0]
@@ -39,5 +34,5 @@ def process(w):
                  i -= 1
         else:
             break
-    return w[:-1]
+    return f'Okay, Result is: {w[:-1]}'
 print(process(word))
