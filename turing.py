@@ -7,7 +7,7 @@ word = input()
 def process(w):
     w = [i for i in w]
     if not '-' in w:
-       return 'inf'
+       return 'not right request'
     condition = 'q0'
     i = 0
     while True:
