@@ -1,5 +1,5 @@
 #v.0.0.6
-            #Turing macchine by mishanya with Russian localisation
+            #Turing macchine by mishanya
 print('введите правила для a, b и с')
 a = input()
 b = input()
@@ -17,39 +17,26 @@ def process(w):
     i = 0
     for_every_step = {}
     while True:
-        if i < 0:
-            return w[:-1]
-        if i > len(word) - 1:
-            return w[:-1]
-
+        if i < 0 or i > len(w) - 1:
+            return 'не цикл'
         if w[i] == 'a':
             w[i] = rules['a'][0]
-
             condition = rules['a'][2]
-
         elif w[i] == 'b':
              w[i] = rules['b'][0]
-
              condition = rules['b'][2]
-
         elif w[i] == 'c':
              w[i] = rules['c'][0]
-
              condition = rules['c'][2]
         if w[i] in 'abc':
             if rules[w[i]][1] == 'R':
                 i += 1
             else:
                 i -= 1
-
-
         else:
             return 'не цикл'
         if str(w) not in for_every_step.keys():
             for_every_step[str(w)] = i
         elif str(w) in for_every_step.keys() and for_every_step[str(w)] == i:
             return 'цикл'
-
-
-
 print(process(word))
