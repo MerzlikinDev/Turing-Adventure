@@ -1,5 +1,5 @@
 import time
-def markovs_machine():
+def markovs_machine() -> str:
     word = input()
     rules = {}
     x = input().split()
