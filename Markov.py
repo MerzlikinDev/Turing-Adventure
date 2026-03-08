@@ -1,6 +1,5 @@
 import time
 def markovs_machine():
-    alph = input().split()
     word = input()
     rules = {}
     x = input().split()
