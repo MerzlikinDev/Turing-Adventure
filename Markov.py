@@ -3,20 +3,32 @@ def markovs_machine():
     alph = input().split()
     word = input()
     rules = {}
-    for i in range(len(alph)):
+    x = input().split()
+    while x != ["end"]:
+        rules[x[0]] = x[1]
         x = input().split()
-        rules[alph[i]] = x[0]
-    all_fd = True
-    while all_fd:
-        for i in alph:
+    for keys in rules:
+        d = rules[keys]
+        if d in rules.keys():
+            if rules[d] == keys:
+                return "цикл"
+    sm_fd = True
+    while sm_fd:
+        count = 0
+        for i in list(rules.keys()):
             if i not in word:
-                all_fd = False
-        for i in range(len(rules)):
-            time1 = time.time()
-            while alph[i] in word:
-                word = word.replace(alph[i], rules[alph[i]])
+                count += 1
+                if count == len(list(rules.keys())):
+                    sm_fd = False
+                    return word
+            else:
+                break
+        time1 = time.time()
+        for i in list(rules.keys()):
+            while i in word:
+                word = word.replace(i, rules[i])
                 time_dis = time.time() - time1
-                if time_dis > 7.5: # спорно конечно, например если большая строка то это все же может быть не цикл
+                if time_dis > 7.5: 
                     print('цикл')
                     return word
     return word
