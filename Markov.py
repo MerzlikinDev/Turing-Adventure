@@ -34,6 +34,6 @@ def markovs_machine() -> str:
             elif rules[i][1] == "=>":
                 while i in word:
                     word = word.replace(i, rules[i][0])
-                return word
+                    return word
     return word
 print(markovs_machine())
