@@ -1,0 +1,15 @@
+
+x = int(input())
+if x == 10:
+    print("переводим из 10-ичной системы в 2-ичную")
+    n = int(input())
+    m = []
+    while n != 0:
+        m.append(n % 2)
+        n //= 2
+    print(*m[::-1], sep="", end="")
+    print("₂")
+elif x == 2:
+    binary = input()
+    decimal = int(binary, 2)
+    print(f"{decimal}₁₀")
